@@ -6,6 +6,8 @@
 #include <locale>
 #include <cstdlib>
 #include <ctime>
+#define _USE_MATH_DEFINES
+#include <math.h>
 
 double square_trapezoid(double a, double b, double h) {
     return (((a + b) / 2) * h);
@@ -198,6 +200,179 @@ int Generation(int a, int b, int c) {
     return 0;
 }
 
+/*Task2*/
+int circle_length(double r) {
+    double C = 0;
+    double pi = M_PI;
+    C = 2 * pi * r;
+    return C;
+}
+int circle_square(double r) {
+    double S = 0;
+    double pi = M_PI;
+    S = pi * pow(r, 2);
+    return S;
+}
+
+/*Task4*/
+int sum_of_digits(int number) {
+    int i = 0;
+    int sum = 0;
+    for (i = 1; i <= 4; i++) {
+        sum += number % 10;
+        number /= 10;
+    }
+    return sum;
+}
+
+/*Task6*/
+double convert(double x, double y) {
+    int x1 = 0;
+    int y1 = 0;
+    x1 = x * cos(y);
+    y1 = x * sin(y);
+
+    std::cout << "Cartesian x: " << x1 << std::endl;
+    std::cout << "Cartesian y: " << y1 << std::endl;
+    return 0;
+}
+
+/*Task8*/
+double find_medians(double a, double b, double c) {
+    double med1 = 0.;
+    double med2 = 0.;
+    double med3 = 0.;
+    double med4 = 0.;
+    double med5 = 0.;
+    double med6 = 0.;
+    if (a < b + c || b < a + c || c < a + b) {
+        med1 = 0.5 * sqrt(2 * pow(a, 2) + 2 * pow(b, 2) - pow(c, 2));
+        med2 = 0.5 * sqrt(2 * pow(a, 2) + 2 * pow(c, 2) - pow(b, 2));
+        med3 = 0.5 * sqrt(2 * pow(b, 2) + 2 * pow(c, 2) - pow(a, 2));
+        med4 = 0.5 * sqrt(2 * pow(med1, 2) + 2 * pow(med2, 2) - pow(med3, 2));
+        med5 = 0.5 * sqrt(2 * pow(med1, 2) + 2 * pow(med3, 2) - pow(med2, 2));
+        med6 = 0.5 * sqrt(2 * pow(med2, 2) + 2 * pow(med3, 2) - pow(med1, 2));
+        std::cout << "Median 1: " << med4 << std::endl;
+        std::cout << "Median 2: " << med5 << std::endl;
+        std::cout << "Median 3: " << med6 << std::endl;
+    }
+    else {
+        std::cout << "Enter correct sides of a triangle" << std::endl;
+    }
+    return 0;
+}
+
+/*Task10*/
+double identify_triangle(double a1, double b1, double c1) {
+    if (a1 < b1 + c1 || b1 < a1 + c1 || c1 < a1 + b1) {
+        if (a1 == b1 || a1 == c1 || b1 == c1) {
+            std::cout << "Isosceles triangle" << std::endl;
+        }
+        else {
+            std::cout << "Not isosceles triangle" << std::endl;
+        }
+    }
+    else {
+        std::cout << "Enter correct sides of a triangle" << std::endl;
+    }
+    return 0;
+}
+
+/*Task12*/
+double recommend(double height, double weight) {
+    double idealWeight = 0;
+    idealWeight = height - 100;
+    if (weight < idealWeight) {
+        std::cout << "You need to gain weight" << std::endl;
+    }
+    if (weight > idealWeight) {
+        std::cout << "You need to loose weight" << std::endl;
+    }
+    if (weight == idealWeight) {
+        std::cout << "You weight is ideal" << std::endl;
+    }
+    return 0;
+}
+
+/*Task14*/
+int cost_of_calls(int time, int day) {
+    int costPerMin = 0;
+    int cost = 0;
+    std::cout << "Enter cost per minute: ";
+    std::cin >> costPerMin;
+    if (day > 7) {
+        std::cout << "Enter correct day of week" << std::endl;
+    }
+    if (day < 6) {
+        cost = time * costPerMin;
+    }
+    else {
+        cost = time * costPerMin * 0.8;
+    }
+    return cost;
+}
+
+/*Task16*/
+int identify_number(int number) {
+    int a1 = 0;
+    int a2 = 0;
+    int a3 = 0;
+    int a4 = 0;
+    int a5 = 0;
+    int a6 = 0;
+    if (number < 100000 || number > 999999) {
+        std::cout << "Enter 6-digit number" << std::endl;
+    }
+    a1 = number / 100000;
+    a2 = (number / 10000) % 10;
+    a3 = (number / 1000) % 10;
+    a4 = (number / 100) % 10;
+    a5 = (number / 10) % 10;
+    a6 = number % 10;
+
+    if (a1 + a2 + a3 == a4 + a5 + a6) {
+        std::cout << "Number is happy" << std::endl;
+    }
+    else {
+        std::cout << "Number is unhappy" << std::endl;
+    }
+    return 0;
+}
+
+/*Task18*/
+int check_number(int number) {
+    int a1 = 0;
+    int a2 = 0;
+    int a3 = 0;
+    int a4 = 0;
+    if (number < 1000 || number > 9999) {
+        std::cout << "Enter 4-digit number" << std::endl;
+    }
+    a1 = number / 1000;
+    a2 = (number / 100) % 10;
+    a3 = (number / 10) % 10;
+    a4 = number % 10;
+
+    if (a1 == a4 and a2 == a3) {
+        std::cout << "Number is a polidrom" << std::endl;
+    }
+    else {
+        std::cout << "Number is not a polidrom" << std::endl;
+    }
+    return 0;
+}
+
+/*Task20*/
+int check_rectangles(int a, int b, int c, int d) {
+    if (a < c && b < d || a < d && b < c) {
+        std::cout << "Rectangle AB can be placed in CD" << std::endl;
+    }
+    else {
+        std::cout << "Rectangle AB cannot be placed in CD" << std::endl;
+    }
+    return 0;
+}
+
 
 
 int main(){
@@ -293,7 +468,113 @@ int main(){
     multiplicity_number(n);
     threedigit_number(n);
 
+    /*Task2*/
+    double r = 0;
+    double pi = M_PI;
+    std::cout << "/*Task2*/" << std::endl;
+    std::cout << "Radius: ";
+    std::cin >> r;
+    std::cout << "Length of circle: " << circle_length(r) << std::endl;
+    std::cout << "Square of circle: " << circle_square(r) << std::endl;
+    std::cout << "" << std::endl;
+
+    /*Task4*/
+    int number = 0;
+    std::cout << "/*Task4*/" << std::endl;
+    std::cout << "Input 4-digit number: ";
+    std::cin >> number;
+    std::cout << "Summ of digits: " << sum_of_digits(number) << std::endl;
+    std::cout << "" << std::endl;
+
+    /*Task6*/
+    double x = 0.;
+    double y = 0.;
+    std::cout << "/*Task6*/" << std::endl;
+    std::cout << "Input polar cordinates: ";
+    std::cin >> x >> y;
+    convert(x, y);
+    std::cout << "" << std::endl;
+
+    /*Task8*/
+    double a = 0.;
+    double b = 0.;
+    double c = 0.;
+    std::cout << "/*Task8*/" << std::endl;
+    std::cout << "Enter sides of triangle: ";
+    std::cin >> a >> b >> c;
+    find_medians(a, b, c);
+    std::cout << "" << std::endl;
+
+    /*Task10*/
+    double a1 = 0.;
+    double b1 = 0.;
+    double c1 = 0.;
+    std::cout << "/*Task10*/" << std::endl;
+    std::cout << "Enter sides of triangle: ";
+    std::cin >> a1 >> b1 >> c1;
+    identify_triangle(a1, b1, c1);
+    std::cout << "" << std::endl;
+
+    /*Task12*/
+    double height = 0.;
+    double weight = 0.;
+    std::cout << "/*Task12*/" << std::endl;
+    std::cout << "Enter height: ";
+    std::cin >> height;
+    std::cout << "Enter weight: ";
+    std::cin >> weight;
+    recommend(height, weight);
+    std::cout << "" << std::endl;
+
+    /*Task14*/
+    int time = 0;
+    int day = 0;
+    std::cout << "/*Task14*/" << std::endl;
+    std::cout << "Enter time: ";
+    std::cin >> time;
+    std::cout << "Enter day: ";
+    std::cin >> day;
+    std::cout << "Cost of your call: " << cost_of_calls(time, day) << std::endl;
+    std::cout << "" << std::endl;
+
+
+    /*Task16*/
+    int number1 = 0;
+    std::cout << "/*Task16*/" << std::endl;
+    std::cout << "Enter 6-digit number: ";
+    std::cin >> number1;
+    identify_number(number1);
+    std::cout << "" << std::endl;
+
+    /*Task18*/
+    int number2 = 0;
+    std::cout << "/*Task18*/" << std::endl;
+    std::cout << "Enter 4-digit number: ";
+    std::cin >> number2;
+    check_number(number2);
+    std::cout << "" << std::endl;
+
+    /*Task20*/
+    double a2 = 0.;
+    double b2 = 0.;
+    double c2 = 0.;
+    double d2 = 0.;
+    std::cout << "/*Task20*/" << std::endl;
+    std::cout << "Enter sides of smaller rectangle: ";
+    std::cin >> a2 >> b2;
+    std::cout << "Enter sides of bigger rectangle: ";
+    std::cin >> c2 >> d2;
+    check_rectangles(a2, b2, c2, d2);
+
     return 0;
 
 }
 
+
+
+
+
+
+
+
+    
