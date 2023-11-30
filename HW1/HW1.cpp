@@ -191,15 +191,15 @@ int multiplicity_number(int number) {
     return 0;
 }
 
-double CartesianToPolar(double x, double y) {
-    double radius = sqrt((x * x) + (y * y));
+double CartesianToPolar(double x, double y) { // параметр функции- декартовые
+    double radius = sqrt((x * x) + (y * y)); //полярные кооридинаты 
     double angle = atan2(y, x);
-    std::cout << "Полярный радиус"<< radius << std::endl;
+    std::cout << "Полярный радиус"<< radius << std::endl; //выводим полярные координаты
     std::cout << "Полярный угол" << angle << "(радиан)" << std::endl;
     return radius, angle;
 
 }
-int Generation(int a, int b, int c) {
+int Generation(int a, int b, int c) { // парметр функции - случайные числа и произведение, которое ввел пользователь
     std::cout << ((a * b == c) ? "correct" : "wrong") << std::endl;
     return 0;
 }
@@ -380,34 +380,34 @@ int check_rectangles(int a, int b, int c, int d) {
 
 
 int main(){
-    setlocale(LC_ALL, "Russian");
+    setlocale(LC_ALL, "Russian"); // для русских сообщений
     /*Task1*/
     std::cout << "*Task1*/" << std::endl;
     double footing1; // инициализируем исходные данные тип double
     double footing2;
     double h;
-    std::cout << " Enter footing1, footing2, height" << std::endl;
+    std::cout << " Enter footing1, footing2, height" << std::endl; // ввыводится соообщение в консоль для ввода необходимых данных
     std::cin >> footing1 >> footing2 >> h; // вводим стороны и высоту
-    std::cout << "Square" << square_trapezoid(footing1, footing2, h) << std::endl;
+    std::cout << "Square" << square_trapezoid(footing1, footing2, h) << std::endl; //выводим площадь
     std::cout << "" << std::endl;
 
     /*Task2*/
     double r = 0;
     double pi = M_PI;
     std::cout << "/*Task2*/" << std::endl;
-    std::cout << "Radius: ";
+    std::cout << "Radius: "; 
     std::cin >> r;
     std::cout << "Length of circle: " << circle_length(r) << std::endl;
     std::cout << "Square of circle: " << circle_square(r) << std::endl;
     std::cout << "" << std::endl;
 
     /*Task3*/
-    double cathet1, cathet2;
+    double cathet1, cathet2;  // инициализируем исходные данные тип double
     std::cout << "*Task3*/" << std::endl;
-    std::cout << "Cathet1, Cathet2" << std::endl;
-    std::cin >> cathet1 >> cathet2 ;
-    std::cout << "square" << square_triangle(cathet1, cathet2) << std::endl;
-    std::cout << "hypotenuse" << hypotenuse(cathet1, cathet2) << std::endl;
+    std::cout << "Cathet1, Cathet2" << std::endl; // ввыводится соообщение в консоль для ввода необходимых данных
+    std::cin >> cathet1 >> cathet2 ; //вводим исходные данные 
+    std::cout << "square" << square_triangle(cathet1, cathet2) << std::endl;//вызвается функция для вывода площади с исходными данными
+    std::cout << "hypotenuse" << hypotenuse(cathet1, cathet2) << std::endl; //вызывается функция для вывода гипотенузы
     std::cout << "" << std::endl;
 
     /*Task4*/
@@ -420,10 +420,10 @@ int main(){
     
     /*Task5*/
     std::cout << "*Task5*/" << std::endl;
-    double x, y;
-    std::cout << "Введи X, Y (декартовые)" << std::endl;
-    std::cin >> x >> y;
-    CartesianToPolar(x, y);
+    double x, y; // инициализируем исходные данные тип double
+    std::cout << "Введи X, Y (декартовые)" << std::endl; // ввыводится соообщение в консоль для ввода необходимых данных
+    std::cin >> x >> y; //вводятся данные с консоли
+    CartesianToPolar(x, y); //вызов необходимой функции 
     std::cout << "" << std::endl;
 
     /*Task6*/
@@ -444,8 +444,8 @@ int main(){
     std::cin >> b;
     std::cout << "Enter c" << std::endl; // Вводим исходные данные
     std::cin >> c;
-    std::cout << "The equation: " << a << "x^2" << "+(" << b << ")" << "x" << "+(" << c << ")" << "=0" << std::endl;
-    std::cout << quadratic(a, b, c) << std::endl;
+    std::cout << "The equation: " << a << "x^2" << "+(" << b << ")" << "x" << "+(" << c << ")" << "=0" << std::endl; //выводится уравнение в консоль для пользователя
+    std::cout << quadratic(a, b, c) << std::endl; //вызов необходимой функции 
     std::cout << "" << std::endl;
 
     /*Task8*/
@@ -460,10 +460,10 @@ int main(){
     
     /*Task9*/
     std::cout << "*Task9*/" << std::endl;
-    int k;
+    int k; // Объявляем переменную типа int
     std::cout << "Enter the second of the day " << std::endl; // Вводим исходные данные
-    std::cin >> k;
-    day(k);
+    std::cin >> k; 
+    day(k); //вызов необходимой функции
     std::cout << "" << std::endl;
 
     /*Task10*/
@@ -478,10 +478,10 @@ int main(){
 
     /*Task11*/
     std::cout << "*Task11*/" << std::endl;
-    double cost;
+    double cost; // Объявляем переменную типа double т.к стоимость покупки может быть не целой
     std::cout << "Enter cost of purchase " << std::endl; // Вводим исходные данные
-    std::cin >> cost;
-    cost_purchase(cost);
+    std::cin >> cost; 
+    cost_purchase(cost); //вызов необходимой функции
     std::cout << "" << std::endl;
     
     /*Task12*/
@@ -498,14 +498,14 @@ int main(){
     /*Task13*/
     std::cout << "*Task13*/" << std::endl;
     std::srand(std::time(nullptr)); // use current time as seed for random generator
-    int n1, n2, composition;
+    int n1, n2, composition; // Объявляем переменные типа int
     n1 = rand() % 10; // генерируем число и берем последнюю цифру
     n2 = rand() % 10; // генерируем число и берем последнюю цифру
-    std::cout << n1 << std::endl; //выводим в консоль
+    std::cout << n1 << std::endl; //выводим в консоль случайное число
     std::cout << n2 << std::endl;
-    std::cout << "Введи произведение данных чисел" << std::endl; 
+    std::cout << "Введи произведение данных чисел" << std::endl; // ввыводится соообщение в консоль для ввода необходимых данных
     std::cin >> composition; //ввод произведения с консоли
-    Generation(n1, n2, composition);
+    Generation(n1, n2, composition); //вызов необходимой функции
     std::cout << "" << std::endl;
 
     /*Task14*/
@@ -521,10 +521,10 @@ int main(){
 
     /*Task15*/
     std::cout << "*Task15*/" << std::endl;
-    int month;
-    std::cout << "Enter the mounth number: " << std::endl; // Вводим исходные данные
-    std::cin >> month;
-    month_year(month);
+    int month; //Объявляем переменную типа int
+    std::cout << "Enter the mounth number: " << std::endl; // Вводим исходные данные с консоли
+    std::cin >> month; 
+    month_year(month); //вызов необходимой функции
     std::cout << "" << std::endl;
 
 
@@ -546,10 +546,10 @@ int main(){
 
     /*Task17*/
     std::cout << "*Task17*/" << std::endl;
-    int quantity;
+    int quantity; //Объявляем переменную типа int
     std::cout << "Enter number  from 1 to 99: " << std::endl; // Вводим исходные данные
     std::cin >> quantity;
-    penny(quantity);
+    penny(quantity); //вызов необходимой функции
     std::cout << "" << std::endl;
 
     /*Task18*/
@@ -562,11 +562,11 @@ int main(){
 
     /*Task19*/
     std::cout << "*Task19*/" << std::endl;
-    int num;
+    int num; //Объявляем переменную типа int
     std::cout << "Введи трехзначное число: " << std::endl; // Вводим исходные данные
     std::cin >> num;
-    multiplicity_number(num);
-    threedigit_number(num);
+    multiplicity_number(num); //вызов необходимой функции
+    threedigit_number(num); //вызов необходимой функции
     std::cout << "" << std::endl;
 
     /*Task20*/
