@@ -1,6 +1,4 @@
-﻿// HW1.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
-
+﻿// HW1.cpp 
 #include <iostream>
 #include <math.h>
 #include <locale>
@@ -9,23 +7,25 @@
 #define _USE_MATH_DEFINES
 #include <math.h>
 
-double square_trapezoid(double a, double b, double h) {
-    return (((a + b) / 2) * h);
+/*Task1*/
+double square_trapezoid(double a, double b, double h) { //параметры функции - стороны треугольника и высота
+    return (((a + b) / 2) * h); //вычисляем площадь трапеции
 }
 
-double square_triangle(double a, double b) {
-    return ((a * b) / 2);
+/*Task3*/
+double square_triangle(double a, double b) { //параметры функции - стороны прямоугольного треугольника.
+    return ((a * b) / 2); // вычисляем площадь прямоугольного треугольника.
 }
 
-double hypotenuse(double a, double b) {
-    return sqrt(pow(a, 2) + pow(b, 2));
+double hypotenuse(double a, double b) { //параметры функции - стороны прямоугольного треугольника.
+    return sqrt(pow(a, 2) + pow(b, 2)); // вычисляем гипотенузу.
 }
 
-double quadratic(double a, double b, double c) {
-    double D, x1, x2;
+double quadratic(double a, double b, double c) { //параметры функции - коэфиценты квадратного уравнения
+    double D, x1, x2; //инициализируем D, x1, x2
     D = b * b - 4 * a * c; // Рассчитываем дискриминант
     if (D > 0) { // Условие при дискриминанте больше нуля
-        x1 = ((-b) + sqrt(D)) / (2 * a);
+        x1 = ((-b) + sqrt(D)) / (2 * a); //Расчитиваем корни уравнения при D>0
         x2 = ((-b) - sqrt(D)) / (2 * a);
         std::cout << "x1 = ";
         return x1;
@@ -33,41 +33,41 @@ double quadratic(double a, double b, double c) {
         return x2;
     }
     if (D == 0) { // Условие для дискриминанта равного нулю
-        x1 = -(b / (2 * a));
+        x1 = -(b / (2 * a)); //Расчитиваем корень уравнения при D=0
         std::cout << "x = ";
         return x1;
     }
-    else {
-        std::cout << "There is no solution" << std::endl;
-        std::cout << "Diskriminant = ";
+    else { 
+        std::cout << "There is no solution" << std::endl;//если D<0 нет решений
+        std::cout << "Diskriminant = "; //Выводим отрицательный дискриминант
         return D;
     }
 }
 
-int day(int sec) {
+int day(int sec) { //параметры функции - идущая секунда
     sec--;//избавляемся от “идущей” незавершившейся секунды
-    int hours, min;
+    int hours, min; //инициализируем hours, min
     hours = (int)(sec / 3600); // количество полных часов
     min = (int)(sec % 3600) / 60; // количество полных минут
-    std::cout << "It is " << hours << " hours " << min << " minutes."<< std::endl;
+    std::cout << "It is " << hours << " hours " << min << " minutes."<< std::endl; //Выводим сколько целых часов и целых минут прошло с начала суток.
     return 0;
 }
 
-float cost_purchase(double a) {
-    if (a > 1000) {
-        double x;
-        x = a - ((a * 10) / 100);
-        std::cout << "Cost of purchase (including 10% discount): "<< x << std::endl;
+float cost_purchase(double a) { ////параметры функции - стоимость покупки
+    if (a > 1000) { //проверяем условие на скидку
+        double x; //инициализируем стоимость покупки с учетом скидки
+        x = a - ((a * 10) / 100); //расчитываем стоимость покупки с учетом скидки 
+        std::cout << "Cost of purchase (including 10% discount): "<< x << std::endl; //выводим стоимость покупки со скидкой
         return 0;
     }
     else {
-        std::cout << "Cost of purchase: "<< a << std::endl;
+        std::cout << "Cost of purchase: "<< a << std::endl; //если покупка меньше 1000, то стоимость не изменяется
         return 0;
     }
 }
 
-int month_year(int mounth) {
-    if (mounth == 1){
+int month_year(int mounth) {//параметр функции - число месяца 
+    if (mounth == 1){ //по номеру месяца определяем название время года и месяца
         std::cout << "Winter" << std::endl;
         std::cout << "January" << std::endl;
     }
@@ -116,7 +116,7 @@ int month_year(int mounth) {
         std::cout << "November" << std::endl;
     }
     else{
-        std::cout << "Enter a number from 1 to 12;) " << std::endl;
+        std::cout << "Enter a number from 1 to 12;) " << std::endl; //проверка на дурака, если введен месяц, который не существует
         return 0;
     }
 }
@@ -140,48 +140,52 @@ int lacky_number(int part1, int part2) {
     return 0;
 }
 
-int penny(int number) {
-    int x;
+/*Task 17*/
+int penny(int number) { //параметр функции- кол-во копеек
+    int x; //инициализируем переменную для последней цифры
+    int x1; //инициализируем переменную для первой цифры
     x = number % 10;//смотрим последнюю цифру
-    if (x >= 5 && x <= 9 || x == 0 || number == 11) {
+    x1= number / 10; //смотрим первую цифру
+    if (x >= 5 && x <= 9 || x == 0 || x1 ==1 ) { // если последняя цифра от 5 до 9 или равна 0 (то есть число сотоит 
+        //из одной цифры или если первая цифра равна 1)
         std::cout << number << " копеек" << std::endl;
     }
-    else if (x == 1) {
+    else if (x == 1) { //если последняя цифра равна 1
         std::cout << number << " копейка" << std::endl;
     }
-    else if (x >= 2 && x <= 4) {
+    else if (x >= 2 && x <= 4) { //если последняя цифра от 2 до 4
         std::cout << number << " копейки" << std::endl;
     }
     return 0;
 }
 
 int threedigit_number(int number){
-    int e, d, s, product;
+    int e, d, s, product; //инициализируем единицы, десятки, сотни, произведение 
     e = number % 10; // единицы 
     d = (number / 10) % 10; // десятки 
     s = number / 100; // сотни 
-    product = e * d * s;
-    if (product > number) {
+    product = e * d * s; // произведение цифр числа
+    if (product > number) { //если произведение цифр больше самого числа
         std::cout << "Произведение цифр числа больше самого числа" << std::endl;
     }
-    else if (product == number) {
+    else if (product == number) { //если произведение цифр равно самому числу
         std::cout << "Произведение цифр числа равно числу" << std::endl;
     }
-    else{
+    else{ //есди ни одно условие выше не выполнилось
         std::cout << "Произведение цифр числа меньше самого числа" << std::endl;
     }
     return 0;
 }
 int multiplicity_number(int number) {
-    int e, d, s, sum;
+    int e, d, s, sum; //инициализируем данные 
     e = number % 10; // единицы 
     d = (number / 10) % 10; // десятки 
     s = number / 100; // сотни 
-    sum = e + d + s;
-    if (sum % 7 == 0) {
+    sum = e + d + s; //сумму цифр числа 
+    if (sum % 7 == 0) { //если сумма цифр числа делится на 7 без остатка т.е остаток равен 0
         std::cout << "Сумма цифр числа кратна 7" << std::endl;
     }
-    else {
+    else { ///если число не кратно 7
         std::cout << "Сумма цифр числа НЕ кратна 7" << std::endl;
     }
     return 0;
@@ -202,13 +206,13 @@ int Generation(int a, int b, int c) {
 
 /*Task2*/
 int circle_length(double r) {
-    double C = 0;
+    double C =0.;
     double pi = M_PI;
     C = 2 * pi * r;
     return C;
 }
 int circle_square(double r) {
-    double S = 0;
+    double S = 0.;
     double pi = M_PI;
     S = pi * pow(r, 2);
     return S;
