@@ -379,12 +379,23 @@ int main(){
     setlocale(LC_ALL, "Russian");
     /*Task1*/
     std::cout << "*Task1*/" << std::endl;
-    double b1; // инициализируем исходные данные тип double
-    double b2;
+    double footing1; // инициализируем исходные данные тип double
+    double footing2;
     double h;
     std::cout << " Enter footing1, footing2, height" << std::endl;
-    std::cin >> b1 >> b2 >> h; // вводим стороны и высоту
-    std::cout << "Square" << square_trapezoid(b1, b2, h) << std::endl;
+    std::cin >> footing1 >> footing2 >> h; // вводим стороны и высоту
+    std::cout << "Square" << square_trapezoid(footing1, footing2, h) << std::endl;
+    std::cout << "" << std::endl;
+
+    /*Task2*/
+    double r = 0;
+    double pi = M_PI;
+    std::cout << "/*Task2*/" << std::endl;
+    std::cout << "Radius: ";
+    std::cin >> r;
+    std::cout << "Length of circle: " << circle_length(r) << std::endl;
+    std::cout << "Square of circle: " << circle_square(r) << std::endl;
+    std::cout << "" << std::endl;
 
     /*Task3*/
     double cathet1, cathet2;
@@ -393,6 +404,15 @@ int main(){
     std::cin >> cathet1 >> cathet2 ;
     std::cout << "square" << square_triangle(cathet1, cathet2) << std::endl;
     std::cout << "hypotenuse" << hypotenuse(cathet1, cathet2) << std::endl;
+    std::cout << "" << std::endl;
+
+    /*Task4*/
+    int number = 0;
+    std::cout << "/*Task4*/" << std::endl;
+    std::cout << "Input 4-digit number: ";
+    std::cin >> number;
+    std::cout << "Summ of digits: " << sum_of_digits(number) << std::endl;
+    std::cout << "" << std::endl;
     
     /*Task5*/
     std::cout << "*Task5*/" << std::endl;
@@ -400,6 +420,16 @@ int main(){
     std::cout << "Введи X, Y (декартовые)" << std::endl;
     std::cin >> x >> y;
     CartesianToPolar(x, y);
+    std::cout << "" << std::endl;
+
+    /*Task6*/
+    double x1 = 0.;
+    double y1 = 0.;
+    std::cout << "/*Task6*/" << std::endl;
+    std::cout << "Input polar cordinates: ";
+    std::cin >> x1 >> y1;
+    convert(x1, y1);
+    std::cout << "" << std::endl;
 
     /*Task7*/
     std::cout << "*Task7*/" << std::endl;
@@ -412,6 +442,17 @@ int main(){
     std::cin >> c;
     std::cout << "The equation: " << a << "x^2" << "+(" << b << ")" << "x" << "+(" << c << ")" << "=0" << std::endl;
     std::cout << quadratic(a, b, c) << std::endl;
+    std::cout << "" << std::endl;
+
+    /*Task8*/
+    double side1 = 0.;
+    double side2 = 0.;
+    double side3 = 0.;
+    std::cout << "/*Task8*/" << std::endl;
+    std::cout << "Enter sides of triangle: ";
+    std::cin >> side1 >> side2 >> side3;
+    find_medians(side1, side2, side3);
+    std::cout << "" << std::endl;
     
     /*Task9*/
     std::cout << "*Task9*/" << std::endl;
@@ -419,90 +460,6 @@ int main(){
     std::cout << "Enter the second of the day " << std::endl; // Вводим исходные данные
     std::cin >> k;
     day(k);
-
-    /*Task11*/
-    std::cout << "*Task11*/" << std::endl;
-    double cost;
-    std::cout << "Enter cost of purchase " << std::endl; // Вводим исходные данные
-    std::cin >> cost;
-    cost_purchase(cost);
-
-    /*Task13*/
-    std::cout << "*Task13*/" << std::endl;
-    std::srand(std::time(nullptr)); // use current time as seed for random generator
-    int n1, n2, composition;
-    n1 = rand() % 10; // генерируем число и берем последнюю цифру
-    n2 = rand() % 10; // генерируем число и берем последнюю цифру
-    std::cout << n1 << std::endl; //выводим в консоль
-    std::cout << n2 << std::endl;
-    std::cout << "Введи произведение данных чисел" << std::endl; 
-    std::cin >> composition; //ввод произведения с консоли
-    Generation(n1, n2, composition);
-
-    /*Task15*/
-    std::cout << "*Task15*/" << std::endl;
-    int month;
-    std::cout << "Enter the mounth number: " << std::endl; // Вводим исходные данные
-    std::cin >> month;
-    month_year(month);
-
-    /*Task16*/
-    std::cout << "*Task16*/" << std::endl;
-    int part1, part2 ;
-    std::cout << "Enter number XXX XXX: " << std::endl; // Вводим исходные данные
-    std::cin >> part1 >> part2;
-    lacky_number(part1, part2);
-
-    /*Task17*/
-    std::cout << "*Task17*/" << std::endl;
-    int number;
-    std::cout << "Enter number  from 1 to 99: " << std::endl; // Вводим исходные данные
-    std::cin >> number;
-    penny(number);
-
-    /*Task19*/
-    std::cout << "*Task19*/" << std::endl;
-    int n;
-    std::cout << "Введи трехзначное число: " << std::endl; // Вводим исходные данные
-    std::cin >> n;
-    multiplicity_number(n);
-    threedigit_number(n);
-
-    /*Task2*/
-    double r = 0;
-    double pi = M_PI;
-    std::cout << "/*Task2*/" << std::endl;
-    std::cout << "Radius: ";
-    std::cin >> r;
-    std::cout << "Length of circle: " << circle_length(r) << std::endl;
-    std::cout << "Square of circle: " << circle_square(r) << std::endl;
-    std::cout << "" << std::endl;
-
-    /*Task4*/
-    int number = 0;
-    std::cout << "/*Task4*/" << std::endl;
-    std::cout << "Input 4-digit number: ";
-    std::cin >> number;
-    std::cout << "Summ of digits: " << sum_of_digits(number) << std::endl;
-    std::cout << "" << std::endl;
-
-    /*Task6*/
-    double x = 0.;
-    double y = 0.;
-    std::cout << "/*Task6*/" << std::endl;
-    std::cout << "Input polar cordinates: ";
-    std::cin >> x >> y;
-    convert(x, y);
-    std::cout << "" << std::endl;
-
-    /*Task8*/
-    double a = 0.;
-    double b = 0.;
-    double c = 0.;
-    std::cout << "/*Task8*/" << std::endl;
-    std::cout << "Enter sides of triangle: ";
-    std::cin >> a >> b >> c;
-    find_medians(a, b, c);
     std::cout << "" << std::endl;
 
     /*Task10*/
@@ -515,6 +472,14 @@ int main(){
     identify_triangle(a1, b1, c1);
     std::cout << "" << std::endl;
 
+    /*Task11*/
+    std::cout << "*Task11*/" << std::endl;
+    double cost;
+    std::cout << "Enter cost of purchase " << std::endl; // Вводим исходные данные
+    std::cin >> cost;
+    cost_purchase(cost);
+    std::cout << "" << std::endl;
+    
     /*Task12*/
     double height = 0.;
     double weight = 0.;
@@ -524,6 +489,19 @@ int main(){
     std::cout << "Enter weight: ";
     std::cin >> weight;
     recommend(height, weight);
+    std::cout << "" << std::endl;
+
+    /*Task13*/
+    std::cout << "*Task13*/" << std::endl;
+    std::srand(std::time(nullptr)); // use current time as seed for random generator
+    int n1, n2, composition;
+    n1 = rand() % 10; // генерируем число и берем последнюю цифру
+    n2 = rand() % 10; // генерируем число и берем последнюю цифру
+    std::cout << n1 << std::endl; //выводим в консоль
+    std::cout << n2 << std::endl;
+    std::cout << "Введи произведение данных чисел" << std::endl; 
+    std::cin >> composition; //ввод произведения с консоли
+    Generation(n1, n2, composition);
     std::cout << "" << std::endl;
 
     /*Task14*/
@@ -537,6 +515,14 @@ int main(){
     std::cout << "Cost of your call: " << cost_of_calls(time, day) << std::endl;
     std::cout << "" << std::endl;
 
+    /*Task15*/
+    std::cout << "*Task15*/" << std::endl;
+    int month;
+    std::cout << "Enter the mounth number: " << std::endl; // Вводим исходные данные
+    std::cin >> month;
+    month_year(month);
+    std::cout << "" << std::endl;
+
 
     /*Task16*/
     int number1 = 0;
@@ -546,12 +532,37 @@ int main(){
     identify_number(number1);
     std::cout << "" << std::endl;
 
+    /*Task16*/
+    std::cout << "*Task16*/" << std::endl;
+    int part1, part2 ;
+    std::cout << "Enter number XXX XXX: " << std::endl; // Вводим исходные данные
+    std::cin >> part1 >> part2;
+    lacky_number(part1, part2);
+    std::cout << "" << std::endl;
+
+    /*Task17*/
+    std::cout << "*Task17*/" << std::endl;
+    int quantity;
+    std::cout << "Enter number  from 1 to 99: " << std::endl; // Вводим исходные данные
+    std::cin >> quantity;
+    penny(quantity);
+    std::cout << "" << std::endl;
+
     /*Task18*/
-    int number2 = 0;
+    int digit = 0;
     std::cout << "/*Task18*/" << std::endl;
     std::cout << "Enter 4-digit number: ";
-    std::cin >> number2;
-    check_number(number2);
+    std::cin >> digit;
+    check_number(digit);
+    std::cout << "" << std::endl;
+
+    /*Task19*/
+    std::cout << "*Task19*/" << std::endl;
+    int num;
+    std::cout << "Введи трехзначное число: " << std::endl; // Вводим исходные данные
+    std::cin >> num;
+    multiplicity_number(num);
+    threedigit_number(num);
     std::cout << "" << std::endl;
 
     /*Task20*/
